@@ -1,0 +1,81 @@
+.input_div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 7px 13px 7px;
+
+  .label {
+    font-size: 12px;
+    color: $color--blue-400;
+    margin: 5px;
+  }
+  .input_field {
+    border-radius: $borderRadius--input;
+    border: 1px solid $color--blue-400;
+    height: 48px;
+    padding-inline: 15px 50px;
+    letter-spacing: 0.5px;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    /* Firefox */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  .input_field:focus {
+    outline: 0 !important;
+  }
+
+  .input_password {
+    display: flex;
+  }
+
+  .see_password {
+    position: absolute;
+    right: 24px;
+    top: 42px;
+    display: block;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .cross_check {
+    position: absolute;
+    right: 24px;
+    top: 42px;
+    display: block;
+    z-index: 100;
+  }
+
+  .error {
+    border: 1px solid $color--primary-error;
+  }
+
+  .isValid {
+    border: 1px solid $color--primary-success;
+  }
+
+  .error_label {
+    color: $color--primary-error;
+  }
+
+  .error_text {
+    font-size: 10px;
+    color: $color--primary-error;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .input_div {
+    margin-bottom: 6px;
+
+    .input_field {
+      height: 45px;
+      font-size: 14px;
+    }
+  }
+}
