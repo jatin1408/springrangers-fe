@@ -7,6 +7,14 @@ import Layout from '../../components/layout';
 
 const DetailsPage: React.FunctionComponent<props> = () => {
   const [modal, setModal] = React.useState(false);
+  const userDetails = {
+    name : "Alex Dram",
+    email : "alexdram@gmail.com",
+    phoneNumber : "9842522245",
+    type : "Seller",
+    code : "UID84582282"
+  }
+
   const toggle = () => {
     setModal(!modal);
   };
@@ -16,11 +24,11 @@ const DetailsPage: React.FunctionComponent<props> = () => {
       <Layout>
         <div className={styles.details}>
           <div className={styles.left}>
-            <div className={styles.content}>NAME</div>
-            <div className={styles.content}>EMAIL</div>
-            <div className={styles.content}>PhoneNumber</div>
-            <div className={styles.content}>Type</div>
-            <div className={styles.content}>Code</div>
+            <div className={styles.content}>Name: {userDetails.name}</div>
+            <div className={styles.content}>Email: {userDetails.email} </div>
+            <div className={styles.content}>PhoneNumber: {userDetails.phoneNumber} </div>
+            <div className={styles.content}>Type: {userDetails.type} </div>
+            <div className={styles.content}>Code: {userDetails.code} </div>
           </div>
           <div className={styles.right}>
             <div className={styles.user_order_detail}>
