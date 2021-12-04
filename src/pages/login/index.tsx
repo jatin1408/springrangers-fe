@@ -12,7 +12,8 @@ import axios from 'axios';
 import Toast from '../../utils/toast';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Layout from '../../components/layout';
+import Layout from '../../components/layout'
+import Storage from '../../utils/storage';
 
 const LoginPage: React.FunctionComponent<props> = () => {
   const router = useRouter();
@@ -29,9 +30,11 @@ const LoginPage: React.FunctionComponent<props> = () => {
       });
       if (response.data) {
         const data = response.data;
+        Storage.save("user",data);
+        
         setStatus(data.status);
         Toast.success({ msg: 'You are successfully Logged in!' });
-        // router.replace({ pathname: '/login' });
+        router.replace({ pathname: '/details' });
       }
     } catch (error: any) {
       let message = error?.response?.data?.message;

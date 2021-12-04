@@ -8,8 +8,45 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import InputField from '../form-elements/input-field';
 import Button from '../button';
+import Storage from '../../utils/storage';
+import { useRouter } from 'next/dist/client/router';
+import { createOrderURL } from '../../utils/urls';
+import axios from 'axios';
+import Toast from '../../utils/toast';
 
 const TransactionModal: React.FunctionComponent<props> = ({ modal, toggle }) => {
+  const router = useRouter();
+  const [status, setStatus] = React.useState(0);
+
+  // const user_id = 1;
+  // if (Storage.check("user")) {
+  //   const user = Storage.get("user");
+  //   console.log(user)
+  // }
+
+  const createOrderRequest = async (body: any) => {
+    try {
+      const url = createOrderURL();
+      body.user_id = 1;
+
+      const response = await axios.post(url, body, {
+        headers: {
+          'content-type': 'application/json'
+        }
+      });
+      if (response.data) {
+        const data = response.data;
+        setStatus(data.status);
+        Toast.success({ msg: 'Order created successfully!' });
+        router.reload();
+      }
+    } catch (error: any) {
+      let message = error?.response?.data?.message;
+      setStatus(error?.response?.data?.status);
+      Toast.error({ msg: message });
+    }
+  }
+
   return (
     <>
       <ToastContainer limit={3} />
@@ -23,7 +60,12 @@ const TransactionModal: React.FunctionComponent<props> = ({ modal, toggle }) => 
             amount: Yup.number().required('Required')
           })}
           onSubmit={(values) => {
-            const body = {};
+            const body = {
+              grand_total: values.amount,
+              service: values.service,
+              code: values.code
+            };
+            createOrderRequest(body);
           }}
         >
           {(localProps) => (
