@@ -9,6 +9,11 @@
 
   .title {
     @include fontHeroPhone;
+    padding-bottom: 10px;
+  }
+  .tagline {
+    @include fontCaption;
+    color: $color--blue-600;
   }
   .btn {
     margin: 20px 0;

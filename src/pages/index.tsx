@@ -9,7 +9,8 @@ export default function Home() {
       <Layout>
         <div className={styles.container}>
           <div className={styles.title}>SAFEPAY</div>
-          <div>Worried about Pay Safe! We got you covered.</div>
+          <div className={styles.tagline}>Worried about money?</div>
+          <div className={styles.tagline}>Pay Safe! We got you covered.</div>
           <div className={styles.btn}>
             <Button
               id='signup_email'

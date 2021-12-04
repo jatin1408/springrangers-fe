@@ -5,14 +5,14 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import InputField from '../../components/form-elements/input-field';
 import Button from '../../components/button';
-import { PASSWORD_REGEX } from '../../constants/user-constants';
+import { PASSWORD_REGEX, USER_ID } from '../../constants/user-constants';
 import { loginURL } from '../../utils/urls';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Toast from '../../utils/toast';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Layout from '../../components/layout'
+import Layout from '../../components/layout';
 import Storage from '../../utils/storage';
 
 const LoginPage: React.FunctionComponent<props> = () => {
@@ -30,11 +30,12 @@ const LoginPage: React.FunctionComponent<props> = () => {
       });
       if (response.data) {
         const data = response.data;
-        Storage.save("user",data);
-        
+        Storage.save('user', data);
+
         setStatus(data.status);
         Toast.success({ msg: 'You are successfully Logged in!' });
         router.replace({ pathname: '/details' });
+        Storage.save(USER_ID, data.user_id);
       }
     } catch (error: any) {
       let message = error?.response?.data?.message;

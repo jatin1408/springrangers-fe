@@ -28,3 +28,9 @@ export const createOrderURL = () => {
     API_ENDPOINT.NEXT_PUBLIC_CREATE_ORDER
   );
 };
+
+export const getOrderURL = (id: any) => {
+  let getOrder = API_ENDPOINT.NEXT_PUBLIC_GET_ORDER;
+  getOrder = getOrder?.replace(':id', id);
+  return combineBaseURLAndRelativePath(process.env.NEXT_PUBLIC_BASE_URI, getOrder);
+};

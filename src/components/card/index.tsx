@@ -20,14 +20,15 @@ const CardComponent: React.FunctionComponent<props> = ({ userDetail, userType })
     <div className={styles.card_body}>
       <div className={styles.left}>
         <div className={styles.content}>
-          Name: {userDetail?.name} | Email: {userDetail?.email} | Code: {userDetail?.unique_code}{' '}
+          Name: {userDetail?.first_name} {userDetail?.last_name} | Email: {userDetail?.email} |
+          Code: {userDetail?.unique_code}{' '}
         </div>
         <div className={styles.content}>Order Id: {userDetail?.order_Id}</div>{' '}
         {/* Only for Seller */}
         <div className={styles.content}>Service Type: {userDetail?.service}</div>
         <div className={styles.content}>Order Status: {userDetail?.status}</div>
         <div className={styles.content}>
-          Amount: {userDetail?.amount} | Payment Status: {userDetail?.payment_status}
+          Amount: {userDetail?.grand_total} | Payment Status: {userDetail?.payment_status}
         </div>
       </div>
       <div className={styles.right}>
