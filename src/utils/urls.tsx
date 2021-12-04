@@ -22,3 +22,9 @@ export const loginURL = () => {
     API_ENDPOINT.NEXT_PUBLIC_LOGIN
   );
 };
+export const createOrderURL = () => {
+  return combineBaseURLAndRelativePath(
+    process.env.NEXT_PUBLIC_BASE_URI,
+    API_ENDPOINT.NEXT_PUBLIC_CREATE_ORDER
+  );
+};
