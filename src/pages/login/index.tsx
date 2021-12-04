@@ -12,6 +12,7 @@ import axios from 'axios';
 import Toast from '../../utils/toast';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Layout from '../../components/layout';
 
 const LoginPage: React.FunctionComponent<props> = () => {
   const router = useRouter();
@@ -41,57 +42,59 @@ const LoginPage: React.FunctionComponent<props> = () => {
 
   return (
     <>
-      <ToastContainer limit={3} />
-      <Formik
-        initialValues={{ Email: '', Password: '' }}
-        isInitialValid={false}
-        validationSchema={Yup.object({
-          Email: Yup.string().email('Invalid email address').required('Required'),
-          Password: Yup.string().required('Required').matches(PASSWORD_REGEX, ' ')
-        })}
-        onSubmit={(values) => {
-          const body = {
-            email: values.Email,
-            password: values.Password
-          };
-          loginSendRequest(body);
-        }}
-      >
-        {(localProps) => (
-          <div className={styles.login}>
-            <Form className={styles.form_input}>
-              <div className={styles.title}>Login</div>
-              <Field
-                id='userEmail'
-                name='Email'
-                type='email'
-                label='Email Address*'
-                placeholder='Enter Email'
-                valid={localProps.isValid}
-                component={InputField}
-              />
-              <Field
-                id='Password'
-                name='Password'
-                type='password'
-                label='Password*'
-                placeholder='Enter Password'
-                valid={localProps.isValid}
-                component={InputField}
-              />
-              <Button
-                id='signup_email'
-                type='submit'
-                variant='gradient_primary'
-                label={'login'}
-                className={styles.send_btn}
-                disabled={!localProps.isValid}
-                inProgress={status !== 200 && status !== 400 && status === 100}
-              />
-            </Form>
-          </div>
-        )}
-      </Formik>
+      <Layout>
+        <ToastContainer limit={3} />
+        <Formik
+          initialValues={{ Email: '', Password: '' }}
+          isInitialValid={false}
+          validationSchema={Yup.object({
+            Email: Yup.string().email('Invalid email address').required('Required'),
+            Password: Yup.string().required('Required').matches(PASSWORD_REGEX, ' ')
+          })}
+          onSubmit={(values) => {
+            const body = {
+              email: values.Email,
+              password: values.Password
+            };
+            loginSendRequest(body);
+          }}
+        >
+          {(localProps) => (
+            <div className={styles.login}>
+              <Form className={styles.form_input}>
+                <div className={styles.title}>Login</div>
+                <Field
+                  id='userEmail'
+                  name='Email'
+                  type='email'
+                  label='Email Address*'
+                  placeholder='Enter Email'
+                  valid={localProps.isValid}
+                  component={InputField}
+                />
+                <Field
+                  id='Password'
+                  name='Password'
+                  type='password'
+                  label='Password*'
+                  placeholder='Enter Password'
+                  valid={localProps.isValid}
+                  component={InputField}
+                />
+                <Button
+                  id='signup_email'
+                  type='submit'
+                  variant='gradient_primary'
+                  label={'login'}
+                  className={styles.send_btn}
+                  disabled={!localProps.isValid}
+                  inProgress={status !== 200 && status !== 400 && status === 100}
+                />
+              </Form>
+            </div>
+          )}
+        </Formik>
+      </Layout>
     </>
   );
 };

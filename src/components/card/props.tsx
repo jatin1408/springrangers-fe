@@ -1,1 +1,4 @@
-export declare type props = {};
+export declare type props = {
+  userDetail?: any;
+  userType?: any;
+};

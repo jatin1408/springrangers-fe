@@ -1,0 +1,118 @@
+.popup {
+  position: fixed;
+  background-color: white;
+  top: $nav-height + 10;
+  box-shadow: $shadow--card;
+  z-index: 1000;
+  padding: 18px;
+  border-radius: $borderRadius--medium;
+  width: 80%;
+  margin-inline: 10%;
+
+  .pointer {
+    display: none;
+  }
+  .close_btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    .title {
+      @include fontHeadline5;
+    }
+    .btn_wrapper {
+      width: 30%;
+      .btn {
+        width: 96%;
+        justify-content: center;
+        cursor: not-allowed;
+      }
+    }
+    .close {
+      cursor: pointer;
+    }
+  }
+  .notifications {
+    @include hideScrollBar;
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  .notification {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+
+    .desc {
+      margin-right: 10px;
+      .time {
+        @include fontHairline4;
+        color: $color--blue-500;
+      }
+      .name {
+        @include fontCaptionBold;
+        color: $color--blue-600;
+        padding-bottom: 5px;
+      }
+      .sub_description {
+        @include fontCaption1;
+        color: $color--blue-500;
+      }
+    }
+    .is_opened {
+      border-right: 3px solid $color--primaryPink;
+    }
+  }
+  [class*='not_last_noti'] {
+    border-bottom: 2px solid $color--blue-200;
+  }
+}
+@media (min-width: $mobile-breakpoint) {
+  .popup {
+    right: 25px;
+    top: $nav-height - 10;
+    width: 360px;
+    margin-inline: 0;
+
+    .pointer {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-color: $color--white;
+      right: 72px;
+      top: -10px;
+      z-index: 2000;
+      border-radius: $borderRadius--extra-small;
+      transform: rotate(45deg);
+      display: block;
+    }
+    .notifications {
+      max-height: 300px;
+    }
+    .close_btn {
+      display: none;
+    }
+  }
+
+  .show_tab_header {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .popup {
+    width: 400px;
+    right: 388px;
+
+    .pointer {
+      right: 185px;
+    }
+  }
+}

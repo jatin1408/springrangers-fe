@@ -28,7 +28,7 @@ const Button: React.FunctionComponent<props> = ({
     icon = (
       <Image
         src={iconPath}
-        alt={'Image SafeDeal'}
+        alt={'Image SafePay'}
         height={label ? 28 : 40}
         width={label ? 28 : 40}
       />

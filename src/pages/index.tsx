@@ -1,17 +1,26 @@
-import Head from "next/head";
+import Head from 'next/head';
+import Layout from '../components/layout';
+import styles from './index.module.scss';
+import Button from '../components/button';
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>SafeDeal</title>
-        <meta name="author" content="SafeDeal Inc" />
-        <meta
-          name="description"
-          content="Welcome to SafeDeal the only secondary concert ticket market using the power of blockchain to bring fans closer to artists."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Layout>
+        <div className={styles.container}>
+          <div className={styles.title}>SAFEPAY</div>
+          <div>Worried about Pay Safe! We got you covered.</div>
+          <div className={styles.btn}>
+            <Button
+              id='signup_email'
+              type='submit'
+              variant='secondary'
+              label={'Register'}
+              className={styles.register}
+            />
+          </div>
+        </div>
+      </Layout>
     </>
   );
 }

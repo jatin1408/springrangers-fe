@@ -9,7 +9,9 @@ $nav-height: 80px;
 $footer-height: 90px;
 
 //Fonts
-$fontFamily-chillax: 'chillax';
+// font-family: 'Fira Sans', sans-serif;
+// $fontFamily-chillax: 'chillax';
+$fontFamily-chillax: 'Fira Sans';
 $fontFamily-lexend: 'Lexend';
 $fontFamily-Neue-Haas: 'Neue Haas Grotesk Text Pro';
 
@@ -21,9 +23,12 @@ $color--blue: #0d084d;
 $color--green: #1dbf73;
 $color--white: #ffffff;
 $color--black: #000000;
+$color--green-light: #81f8c0;
+$color--blue-light: #5737f8;
 
 $gradientBG--primary-1: linear-gradient(90deg, #1dbf73 0%, #0d084d 100%);
-$gradientBG: linear-gradient(90deg, #ffffff57 0%, #afa8f79d 100%);
+// $gradientBG: linear-gradient(90deg, #ffffff57 0%, #afa8f79d 100%);
+$gradientBG: #e7e6ec;
 
 $color--blue-800: #141416;
 $color--blue-700: #25232f;

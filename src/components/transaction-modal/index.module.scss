@@ -1,0 +1,12 @@
+.form_input {
+  @include fontBodyStyleGlobal;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .send_btn {
+    width: 98%;
+    justify-content: center;
+    color: white;
+  }
+}
