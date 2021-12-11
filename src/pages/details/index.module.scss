@@ -1,0 +1,62 @@
+.details {
+  display: flex;
+  flex-direction: row;
+  // background-color: $color--blue-300;
+
+  .left {
+    @include fontBody2Bold;
+    background-color: $color--blue;
+    color: $color--white;
+    width: 20%;
+    height: 100%;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    margin-right: 40px;
+    height: 700px;
+    background-attachment: fixed;
+
+    .content {
+      padding: 20px 15px 5px;
+    }
+  }
+  .right {
+    width: 40%;
+    padding-top: 30px;
+
+    .cards {
+      @include hideScrollBar;
+      overflow-y: scroll;
+      height: 600px;
+
+      .card_detail {
+        margin: 20px 10px;
+      }
+    }
+
+    .user_order_detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      .orders {
+        @include fontHeadline4;
+      }
+      .payment {
+        @include fontBody2Bold;
+        max-width: 200px;
+        background-color: $color--blue;
+        border-radius: 14px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .text {
+          color: $color--white;
+          padding-inline: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+.container {
+  padding: 3px;
+}
+.inline {
+  display: inline-block;
+}
+.button {
+  @include fontButton2;
+  border: 0;
+  border-radius: $borderRadius--button;
+  min-height: 41px;
+  display: flex;
+  align-items: center;
+}
+
+.fullWidth {
+  width: 100%;
+  padding: 3px !important;
+  .button {
+    margin: 0 !important;
+    width: 100%;
+  }
+  .label {
+    margin: auto;
+  }
+}
+
+.invert {
+  flex-direction: row-reverse;
+}
+
+.icon_button {
+  border-radius: $borderRadius-iconButton;
+  background: unset !important;
+  background-color: transparent !important;
+  box-shadow: unset !important;
+  .icon {
+    margin: 0;
+  }
+}
+
+.primary {
+  box-shadow: $shadow--card;
+  &.white {
+    background-color: $color--white;
+    &:hover {
+      background-color: $color--blue-100;
+    }
+  }
+  &.black {
+    background-color: $color--blue-700;
+    color: $color--white;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &.pink {
+    background: $gradientBG--primary-1;
+    color: $color--white;
+    border: 2px solid transparent; //Hack to avoid button flashing
+    &:hover {
+      background: transparent;
+      color: $color--primaryPink;
+      border: 2px solid $color--primaryPink;
+    }
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border: 2px solid $color--blue-200;
+}
+
+.tertiary,
+.secondary {
+  background-color: transparent;
+  &.white {
+    color: $color--white;
+  }
+  &.black {
+    color: $color--blue-700;
+  }
+  &.pink {
+    color: $color--primaryPink;
+  }
+
+  &.white,
+  &.black,
+  &.pink {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.gradient_border {
+  display: inline-block;
+  border: 2px solid $color--blue-700;
+  border-radius: $borderRadius--medium;
+  margin: 7px;
+  padding: 0; // For Primary Gradient button to avoid oversize
+
+  .button {
+    margin: 3px;
+    box-shadow: $shadow--button;
+  }
+}
+
+.gradient_secondary,
+.gradient_primary {
+  background: $color--blue;
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.pink {
+    background: $color--blue;
+    color: white;
+    box-shadow: $shadow--button-pink;
+  }
+}
+
+.icon {
+  margin: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  margin: auto 5px;
+}
+
+.unbold {
+  font-weight: normal;
+}
+
+.blur {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.progress_inline {
+  width: 25px;
+  height: 25px;
+  border: 4px solid $color--blue-100;
+  border-radius: 50%;
+  margin: auto;
+  border-top: 4px solid $color--green;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .button {
+    min-height: 44px;
+  }
+
+  .label {
+    margin: auto 15px;
+  }
+}

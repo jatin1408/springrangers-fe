@@ -1,0 +1,45 @@
+.root {
+  height: $nav-height;
+}
+
+.container {
+  @include shadowBlur;
+  border-radius: 0 0 $borderRadius--large $borderRadius--large;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: calc($nav-height);
+  justify-content: space-between;
+  width: 100%;
+  background: $bg--grayExtraLight;
+  padding: 0 20px;
+  z-index: 1000;
+
+  .left {
+    .pointer {
+      cursor: pointer;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+
+    .a_link {
+      @include fontBody2Bold;
+      color: $color--blue-600;
+      text-decoration: none;
+
+      &:hover {
+        color: $color--textLight;
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .right {
+    margin-right: 50px;
+  }
+}

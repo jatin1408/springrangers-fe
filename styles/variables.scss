@@ -1,0 +1,302 @@
+// Global Breakpoints
+$mobile-breakpoint: 750px;
+$tablet-breakpoint: 1025px;
+$desktop-breakpoint: 1150px;
+$small-mobile-breakpoint: 350px;
+$desktop-maxWidth: 1920px;
+
+$nav-height: 80px;
+$footer-height: 90px;
+
+//Fonts
+// font-family: 'Fira Sans', sans-serif;
+// $fontFamily-chillax: 'chillax';
+$fontFamily-chillax: 'Fira Sans';
+$fontFamily-lexend: 'Lexend';
+$fontFamily-Neue-Haas: 'Neue Haas Grotesk Text Pro';
+
+//Optional BG's Color
+$bg--grayExtraLight: rgba(255, 255, 255, 0.8);
+
+//Colors
+$color--blue: #0d084d;
+$color--green: #1dbf73;
+$color--white: #ffffff;
+$color--black: #000000;
+$color--green-light: #81f8c0;
+$color--blue-light: #5737f8;
+
+$gradientBG--primary-1: linear-gradient(90deg, #1dbf73 0%, #0d084d 100%);
+// $gradientBG: linear-gradient(90deg, #ffffff57 0%, #afa8f79d 100%);
+// $gradientBG: #e7e6ec;
+// $gradientBG: radial-gradient(closest-side, #1dbf73, transparent),
+//   radial-gradient(ellipse at right, #5737f8, transparent),
+//   radial-gradient(ellipse at left, white, transparent);
+$gradientBG: radial-gradient(
+    129.07% 59.61% at 120.4% 97.97%,
+    #afa9ff 0%,
+    rgba(247, 255, 228, 0) 100%
+  ),
+  radial-gradient(88.53% 40.89% at 0% 1.35%, #c0ffba 0%, rgba(249, 255, 209, 0) 100%);
+
+$color--blue-800: #141416;
+$color--blue-700: #25232f;
+$color--blue-650: #1b2230;
+$color--blue-600: #383545;
+$color--blue-500: #797790;
+$color--blue-400: #b4b1c3;
+$color--blue-300: #e7e6ec;
+$color--blue-200: #f4f4f6;
+$color--blue-100: #fcfcfd;
+$color--blue-50: #d6deed;
+
+$color--primary-error: #ef466f;
+$color--primary-success: #45b26b;
+$color--primaryPink: #ff65f0;
+
+//Global Text colors
+
+$color--textDarer: #141416;
+$color--textDark: #383545;
+$color--textLight: #797790;
+$color--textLighter: #e7e6ec;
+
+$gradien-radial: radial-gradient(
+    129.07% 59.61% at 120.4% 97.97%,
+    #c0ffba 0%,
+    rgba(247, 255, 228, 0) 100%
+  ),
+  radial-gradient(88.53% 40.89% at 0% 1.35%, #f6ffd4 0%, rgba(249, 255, 209, 0) 100%);
+
+//border-radius
+$borderRadius--extra-small: 6px;
+$borderRadius-iconButton: 8px;
+$borderRadius--tag: 10px;
+$borderRadius--button: 12px;
+$borderRadius--input: 14px;
+$borderRadius--small: 15px;
+$borderRadius--medium: 17px;
+$borderRadius--large: 20px;
+$borderRadius--statusImage-desktop: 300px;
+$borderRadius--statusImage-tablet: 543px;
+$borderRadius--statusImage-mobile: 241px;
+
+//Card Shadows
+$shadow--card: 0px 8px 32px rgba(103, 91, 103, 0.12);
+$shadow--button: 0px 8px 16px rgba(128, 163, 144, 0.6);
+$shadow--button-pink: 0px 8px 16px rgba(158, 128, 163, 0.6);
+
+@mixin shadowBlur {
+  box-shadow: 0px 8px 28px rgba(76, 91, 96, 0.07);
+  backdrop-filter: blur(30px);
+}
+
+@mixin hideScrollBar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+// font mixins
+@mixin fontHeadingStyleGlobal {
+  font-family: $fontFamily-chillax;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  color: $color--black;
+}
+
+@mixin fontHero {
+  @include fontHeadingStyleGlobal;
+  font-size: 57px;
+  line-height: 60px;
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 80px;
+    line-height: 90px;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 96px;
+    line-height: 100px;
+  }
+}
+
+@mixin fontHeroPhone {
+  @include fontHeadingStyleGlobal;
+  font-size: 57px;
+  line-height: 60px;
+}
+
+@mixin fontHeadline1 {
+  @include fontHeadingStyleGlobal;
+  font-size: 40px;
+  line-height: 45px;
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 55px;
+    line-height: 56px;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 64px;
+    line-height: 66px;
+  }
+}
+
+@mixin fontHeadline2 {
+  @include fontHeadingStyleGlobal;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+@mixin fontHeadline3 {
+  @include fontHeadingStyleGlobal;
+  font-size: 40px;
+  line-height: 50px;
+}
+
+@mixin fontHeadline4 {
+  @include fontHeadingStyleGlobal;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+@mixin fontHeadline5 {
+  @include fontHeadingStyleGlobal;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin fontHeadline6 {
+  @include fontHeadingStyleGlobal;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+@mixin fontButton1 {
+  @include fontHeadingStyleGlobal;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: unset;
+}
+
+@mixin fontButton2 {
+  @include fontHeadingStyleGlobal;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: unset;
+}
+
+@mixin fontBodyStyleGlobal {
+  font-family: $fontFamily-lexend;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin fontBody1 {
+  @include fontBodyStyleGlobal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+}
+
+@mixin fontBody2Bold {
+  @include fontBodyStyleGlobal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin fontBody2 {
+  @include fontBodyStyleGlobal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin fontCaptionBold {
+  @include fontBodyStyleGlobal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+@mixin fontCaption1Bold {
+  @include fontBodyStyleGlobal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin fontCaption {
+  @include fontBodyStyleGlobal;
+  font-size: 14px;
+  line-height: 21px;
+
+  @media all and (max-width: $mobile-breakpoint) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media all and (max-width: $small-mobile-breakpoint) {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+
+@mixin fontCaption1 {
+  @include fontBodyStyleGlobal;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin fontHairline1 {
+  @include fontBodyStyleGlobal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+@mixin fontHairline2 {
+  @include fontBodyStyleGlobal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+@mixin fontHairline3 {
+  @include fontBodyStyleGlobal;
+  font-size: 12px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+@mixin fontHairline4 {
+  @include fontBodyStyleGlobal;
+  font-size: 10px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+@mixin fontHairline4Bold {
+  @include fontBodyStyleGlobal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+@mixin fontOtpStyleGlobal {
+  font-family: $fontFamily-Neue-Haas;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin fontCaptionOtpStyle {
+  @include fontOtpStyleGlobal;
+  font-size: 20px;
+  line-height: 27px;
+}

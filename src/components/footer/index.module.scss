@@ -1,0 +1,84 @@
+.footer_wrapper {
+  @include fontCaption;
+  height: $footer-height;
+  border-radius: $borderRadius--large $borderRadius--large 0px 0px;
+  background-color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+  &.showShadow {
+    @include shadowBlur;
+  }
+
+  //TODO: Responsive Fixing Left
+  .tc,
+  .rights {
+    min-width: 240px;
+    text-align: left;
+    right: 32px;
+    margin: 0;
+  }
+
+  .tc {
+    color: $color--primaryPink;
+    position: absolute;
+    bottom: 50%;
+    display: flex;
+    cursor: pointer;
+  }
+  .image {
+    position: absolute;
+    left: 32px;
+    height: 100%;
+    display: flex;
+  }
+  .rights {
+    position: absolute;
+    bottom: 25%;
+    color: $color--blue-500;
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .footer_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+
+    .image,
+    .tc,
+    .rights {
+      position: unset;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .footer_wrapper {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+
+    .tc,
+    .rights,
+    .image {
+      position: unset;
+      min-width: unset;
+      max-width: unset;
+      padding: 2px 0;
+    }
+
+    .image {
+      order: -1;
+    }
+  }
+}

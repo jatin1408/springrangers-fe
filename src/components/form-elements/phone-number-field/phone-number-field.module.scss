@@ -1,0 +1,78 @@
+.input_div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 7px 16px 7px;
+
+  .phone_label {
+    font-size: 12px;
+    color: $color--blue-400;
+    margin: 5px;
+  }
+
+  .input_field {
+    border-radius: $borderRadius--input;
+    border: 1px solid $color--blue-400;
+    height: 48px;
+    padding-left: 72px;
+    padding-top: 6px;
+    letter-spacing: 0.5px;
+    color: $color--blue-500;
+  }
+  .input_field:focus {
+    outline: 0 !important;
+  }
+  .cross_check {
+    position: absolute;
+    right: 24px;
+    top: 42px;
+    display: block;
+    z-index: 100;
+  }
+
+  .error {
+    border: 1px solid $color--primary-error;
+  }
+
+  .isValid_phone {
+    border: 1px solid $color--primary-success;
+  }
+
+  .error_label {
+    color: $color--primary-error;
+  }
+  .error_text {
+    font-size: 10px;
+    color: $color--primary-error;
+    margin-left: 5px;
+  }
+}
+
+.country_flag {
+  position: absolute;
+  left: 15px;
+  top: 37px;
+  z-index: 100;
+  padding-right: 10px;
+  border-right: 2px solid $color--blue-300;
+  color: $color--blue-500;
+  display: flex;
+
+  .country_code {
+    margin-left: 10px;
+    padding-top: 3px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .input_div {
+    .input_field {
+      height: 45px;
+      font-size: 14px;
+    }
+  }
+
+  .country_flag {
+    top: 35px;
+  }
+}
